@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class KonversiMataUang:
     def __init__(self, kurs_pertukaran):
         self.kurs_pertukaran = kurs_pertukaran
@@ -11,7 +13,8 @@ class KonversiMataUang:
         return jumlah_konversi
 
     def tampilkan_kurs_pertukaran(self):
-        print("\nKurs Pertukaran:")
+        tanggal_hari_ini = datetime.now().strftime("%d-%m-%Y")
+        print(f"Kurs Pertukaran - Hari ini ({tanggal_hari_ini}):")
         for mata_uang, rates in self.kurs_pertukaran.items():
             print(mata_uang + ":")
             for mata_uang_tujuan, rate in rates.items():
@@ -26,7 +29,8 @@ def konversi_mata_uang(jumlah, kurs_pertukaran, mata_uang_asal, mata_uang_tujuan
     print(f"{jumlah} {mata_uang_asal} sama dengan {jumlah_konversi} {mata_uang_tujuan}")
 
 def tampilkan_kurs_pertukaran(kurs_pertukaran):
-    print("Kurs Pertukaran:")
+    tanggal_hari_ini = datetime.now().strftime("%d-%m-%Y")
+    print(f"Kurs Pertukaran - Hari ini ({tanggal_hari_ini}):")
     for mata_uang, rates in kurs_pertukaran.items():
         print(mata_uang + ":")
         for mata_uang_tujuan, rate in rates.items():
@@ -40,7 +44,7 @@ kurs_pertukaran = {
 }
 
 print("Selamat datang di Konverter Mata Uang!")
-jumlah = float(input("\nMasukkan jumlah uang: "))
+jumlah = float(input("Masukkan jumlah uang: "))
 mata_uang_asal = input("Masukkan mata uang asal (misal: USD, EUR, IDR): ").upper()
 mata_uang_tujuan = input("Masukkan mata uang tujuan (misal: USD, EUR, IDR): ").upper()
 
