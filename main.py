@@ -14,7 +14,7 @@ class KonversiMataUang:
 
     def tampilkan_kurs_pertukaran(self):
         tanggal_hari_ini = datetime.now().strftime("%d-%m-%Y")
-        print(f"Kurs Pertukaran - Hari ini ({tanggal_hari_ini}):")
+        print(f"\nKurs Pertukaran - Hari ini ({tanggal_hari_ini}):")
         for mata_uang, rates in self.kurs_pertukaran.items():
             print(mata_uang + ":")
             for mata_uang_tujuan, rate in rates.items():
@@ -44,7 +44,7 @@ kurs_pertukaran = {
 }
 
 print("Selamat datang di Konverter Mata Uang!")
-jumlah = float(input("Masukkan jumlah uang: "))
+jumlah = float(input("\nMasukkan jumlah uang: "))
 mata_uang_asal = input("Masukkan mata uang asal (misal: USD, EUR, IDR): ").upper()
 mata_uang_tujuan = input("Masukkan mata uang tujuan (misal: USD, EUR, IDR): ").upper()
 
