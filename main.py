@@ -56,3 +56,4 @@ print(f"Jumlah yang dikonversi: {jumlah_konversi} {mata_uang_tujuan}")  # Menamp
 # Metode dengan non-return type
 konverter.tampilkan_kurs_pertukaran()
 
+print("\nDibuat oleh KELOMPOK 22")
