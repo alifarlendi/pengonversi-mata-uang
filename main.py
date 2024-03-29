@@ -11,12 +11,11 @@ class KonversiMataUang:
         return jumlah_konversi
 
     def tampilkan_kurs_pertukaran(self):
-        print("Kurs Pertukaran:")
+        print("\nKurs Pertukaran:")
         for mata_uang, rates in self.kurs_pertukaran.items():
             print(mata_uang + ":")
             for mata_uang_tujuan, rate in rates.items():
-                if mata_uang_tujuan != "JPY":  # Hapus mata uang JPY dari daftar kurs pertukaran yang ditampilkan
-                    print(f"  1 {mata_uang} = {rate} {mata_uang_tujuan}")
+                print(f"  1 {mata_uang} = {rate} {mata_uang_tujuan}")
 
 def konversi_mata_uang(jumlah, kurs_pertukaran, mata_uang_asal, mata_uang_tujuan):
     if mata_uang_asal == mata_uang_tujuan:
@@ -31,8 +30,7 @@ def tampilkan_kurs_pertukaran(kurs_pertukaran):
     for mata_uang, rates in kurs_pertukaran.items():
         print(mata_uang + ":")
         for mata_uang_tujuan, rate in rates.items():
-            if mata_uang_tujuan != "JPY":  # Hapus mata uang JPY dari daftar kurs pertukaran yang ditampilkan
-                print(f"  1 {mata_uang} = {rate} {mata_uang_tujuan}")
+            print(f"  1 {mata_uang} = {rate} {mata_uang_tujuan}")
 
 
 kurs_pertukaran = {
@@ -42,14 +40,14 @@ kurs_pertukaran = {
 }
 
 print("Selamat datang di Konverter Mata Uang!")
-jumlah = float(input("Masukkan jumlah uang: "))
+jumlah = float(input("\nMasukkan jumlah uang: "))
 mata_uang_asal = input("Masukkan mata uang asal (misal: USD, EUR, IDR): ").upper()
 mata_uang_tujuan = input("Masukkan mata uang tujuan (misal: USD, EUR, IDR): ").upper()
 
 # Metode dengan return type
 konverter = KonversiMataUang(kurs_pertukaran)
 jumlah_konversi = konverter.konversi_mata_uang(jumlah, mata_uang_asal, mata_uang_tujuan)
-print(f"Jumlah yang dikonversi: {jumlah_konversi}")
+print(f"Jumlah yang dikonversi: {jumlah_konversi} {mata_uang_tujuan}")  # Menampilkan mata uang tujuan di samping jumlah konversi
 
 # Metode dengan non-return type
 konverter.tampilkan_kurs_pertukaran()
