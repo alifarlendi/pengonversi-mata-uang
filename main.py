@@ -1,35 +1,57 @@
-class CurrencyConverter:
-    def __init__(self):
-        self.exchange_rates = {
-            'USD': {'IDR': 14000, 'EUR': 0.85},
-            'IDR': {'USD': 0.000071, 'EUR': 0.000061},
-            'EUR': {'USD': 1.18, 'IDR': 16429}
-        }
+class KonversiMataUang:
+    def __init__(self, kurs_pertukaran):
+        self.kurs_pertukaran = kurs_pertukaran
 
-    def get_exchange_rate(self, base_currency, target_currency):
-        if base_currency in self.exchange_rates and target_currency in self.exchange_rates[base_currency]:
-            return self.exchange_rates[base_currency][target_currency]
-        else:
-            print("Maaf, nilai tukar tidak tersedia.")
+    def konversi_mata_uang(self, jumlah, mata_uang_asal, mata_uang_tujuan):
+        if mata_uang_asal == mata_uang_tujuan:
+            print("Sama mata uangnya, tidak perlu konversi.")
+            return jumlah
 
-    def convert_currency(self, amount, base_currency, target_currency):
-        exchange_rate = self.get_exchange_rate(base_currency, target_currency)
-        if exchange_rate is not None:
-            converted_amount = amount * exchange_rate
-            print(f"{amount} {base_currency} setara dengan {converted_amount} {target_currency}")
-        else:
-            print("Maaf, nilai tukar tidak tersedia.")
+        jumlah_konversi = jumlah * self.kurs_pertukaran[mata_uang_asal][mata_uang_tujuan]
+        return jumlah_konversi
 
-def main():
-    print("Selamat datang di Aplikasi Pengonversi Mata Uang!")
-    converter = CurrencyConverter()
-    base_currency = input("Masukkan kode mata uang asal (misal: USD, EUR, IDR): ").upper()
-    target_currency = input("Masukkan kode mata uang tujuan (misal: USD, EUR, IDR): ").upper()
-    amount = float(input("Masukkan jumlah uang yang ingin dikonversi: "))
+    def tampilkan_kurs_pertukaran(self):
+        print("Kurs Pertukaran:")
+        for mata_uang, rates in self.kurs_pertukaran.items():
+            print(mata_uang + ":")
+            for mata_uang_tujuan, rate in rates.items():
+                if mata_uang_tujuan != "JPY":  # Hapus mata uang JPY dari daftar kurs pertukaran yang ditampilkan
+                    print(f"  1 {mata_uang} = {rate} {mata_uang_tujuan}")
 
-    converter.convert_currency(amount, base_currency, target_currency)
+def konversi_mata_uang(jumlah, kurs_pertukaran, mata_uang_asal, mata_uang_tujuan):
+    if mata_uang_asal == mata_uang_tujuan:
+        print("Sama mata uangnya, tidak perlu konversi.")
+        return jumlah
 
-if __name__ == "__main__":
-    main()
+    jumlah_konversi = jumlah * kurs_pertukaran[mata_uang_asal][mata_uang_tujuan]
+    print(f"{jumlah} {mata_uang_asal} sama dengan {jumlah_konversi} {mata_uang_tujuan}")
+
+def tampilkan_kurs_pertukaran(kurs_pertukaran):
+    print("Kurs Pertukaran:")
+    for mata_uang, rates in kurs_pertukaran.items():
+        print(mata_uang + ":")
+        for mata_uang_tujuan, rate in rates.items():
+            if mata_uang_tujuan != "JPY":  # Hapus mata uang JPY dari daftar kurs pertukaran yang ditampilkan
+                print(f"  1 {mata_uang} = {rate} {mata_uang_tujuan}")
+
+
+kurs_pertukaran = {
+    "USD": {"EUR": 0.84, "IDR": 14105.50},
+    "EUR": {"USD": 1.19, "IDR": 16726.95},
+    "IDR": {"USD": 0.000071, "EUR": 0.000060}
+}
+
+print("Selamat datang di Konverter Mata Uang!")
+jumlah = float(input("Masukkan jumlah uang: "))
+mata_uang_asal = input("Masukkan mata uang asal (misal: USD, EUR, IDR): ").upper()
+mata_uang_tujuan = input("Masukkan mata uang tujuan (misal: USD, EUR, IDR): ").upper()
+
+# Metode dengan return type
+konverter = KonversiMataUang(kurs_pertukaran)
+jumlah_konversi = konverter.konversi_mata_uang(jumlah, mata_uang_asal, mata_uang_tujuan)
+print(f"Jumlah yang dikonversi: {jumlah_konversi}")
+
+# Metode dengan non-return type
+konverter.tampilkan_kurs_pertukaran()
 
 print("\nDibuat oleh KELOMPOK 22")
