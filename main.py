@@ -38,22 +38,24 @@ def tampilkan_kurs_pertukaran(kurs_pertukaran):
 
 
 kurs_pertukaran = {
-    "USD": {"EUR": 0.84, "IDR": 14105.50},
-    "EUR": {"USD": 1.19, "IDR": 16726.95},
-    "IDR": {"USD": 0.000071, "EUR": 0.000060}
+    "USD": {"EUR": 0.93, "IDR": 15880.10},
+    "EUR": {"USD": 1.08, "IDR": 17151.30},
+    "IDR": {"USD": 0.000063, "EUR": 0.000060}
 }
 
 print("Selamat datang di Konverter Mata Uang!")
-jumlah = float(input("\nMasukkan jumlah uang: "))
-mata_uang_asal = input("Masukkan mata uang asal (misal: USD, EUR, IDR): ").upper()
-mata_uang_tujuan = input("Masukkan mata uang tujuan (misal: USD, EUR, IDR): ").upper()
+jumlah = float(input("\nMasukkan Jumlah Uang Anda: "))
+mata_uang_asal = input("Masukkan mata uang asal (USD, EUR, IDR): ").upper()
+mata_uang_tujuan = input("Masukkan mata uang tujuan (USD, EUR, IDR): ").upper()
 
 # Metode dengan return type
 konverter = KonversiMataUang(kurs_pertukaran)
 jumlah_konversi = konverter.konversi_mata_uang(jumlah, mata_uang_asal, mata_uang_tujuan)
-print(f"Jumlah yang dikonversi: {jumlah_konversi} {mata_uang_tujuan}")  # Menampilkan mata uang tujuan di samping jumlah konversi
+# Menampilkan mata uang tujuan di samping jumlah konversi
+print(f"Jumlah yang dikonversi: {jumlah_konversi} {mata_uang_tujuan}")
 
 # Metode dengan non-return type
 konverter.tampilkan_kurs_pertukaran()
 
+print("\nPROGRAM INI BERJALAN BERDASARKAN KURS PERTUKARAN UANG TANGGAL 31 MARET 2024")
 print("\nDibuat oleh KELOMPOK 22")
