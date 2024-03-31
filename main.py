@@ -38,15 +38,24 @@ def tampilkan_kurs_pertukaran(kurs_pertukaran):
 
 
 kurs_pertukaran = {
-    "USD": {"EUR": 0.93, "IDR": 15880.10},
-    "EUR": {"USD": 1.08, "IDR": 17151.30},
-    "IDR": {"USD": 0.000063, "EUR": 0.000060}
+    "USD": {"EUR": 0.93, "IDR": 15880.10, "JPY": 151.34, "CAD": 1.35, "GBP": 0.79, "AUD": 1.53},
+    "EUR": {"USD": 1.08, "IDR": 17151.30, "JPY": 163.57, "CAD": 1.46, "GBP": 0.86, "AUD": 1.66},
+    "IDR": {"USD": 0.000063, "EUR": 0.000060, "JPY": 0.0095, "CAD": 0.000085, "GBP": 0.000050, "AUD": 0.000097},
+    "JPY": {"USD": 0.0066, "IDR": 104.86, "EUR": 0.0061, "CAD": 0.0089, "GBP": 0.0052, "AUD": 0.010},
+    "CAD": {"USD": 0.74, "IDR": 11745.77, "EUR": 0.69, "JPY": 112.03, "GBP": 0.59, "AUD": 1.14},
+    "GBP": {"USD": 1.26, "IDR": 20046.24, "EUR": 1.17, "JPY": 191.05, "AUD": 1.94, "CAD": 1.71},
+    "AUD": {"USD": 0.65, "IDR": 10352.24, "EUR": 0.60, "JPY": 98.78, "GBP": 0.52, "CAD": 0.88}
 }
 
+I = ["1. AUD", '2. CAD', '3. EUR', '4. GBP', '5. IDR', '6. JPY', '7. USD']
 print("Selamat datang di Konverter Mata Uang!")
 jumlah = float(input("\nMasukkan Jumlah Uang Anda: "))
-mata_uang_asal = input("Masukkan mata uang asal (USD, EUR, IDR): ").upper()
-mata_uang_tujuan = input("Masukkan mata uang tujuan (USD, EUR, IDR): ").upper()
+for kata in I :
+    print(kata)
+mata_uang_asal = input("Masukkan Mata Uang Asal (Contoh : IDR): ").upper()
+for kata in I :
+    print(kata)
+mata_uang_tujuan = input("Masukkan Mata Uang Tujuan (Contoh : USD): ").upper()
 
 # Metode dengan return type
 konverter = KonversiMataUang(kurs_pertukaran)
