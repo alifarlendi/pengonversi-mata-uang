@@ -66,5 +66,5 @@ print(f"Jumlah yang dikonversi: {jumlah_konversi} {mata_uang_tujuan}")
 # Metode dengan non-return type
 konverter.tampilkan_kurs_pertukaran()
 
-print("\nPROGRAM INI BERJALAN BERDASARKAN KURS PERTUKARAN UANG PADA TANGGAL 31 MARET 2024")
+print("\nProgram Selesai")
 print("\nDibuat oleh KELOMPOK 22")
